@@ -81,3 +81,25 @@ class GymPass:
         )
 
         self._status = Status.activated
+
+    @property
+    def active(self) -> bool:
+        if self._status == Status.disabled:
+            return False
+
+        if self._status == Status.paused:
+            return False
+
+        return self._period_of_validity.is_within_range(self._clock.get_current_date())
+
+    def to_snapshot(self) -> GymPassSnapshot:
+        return {
+            "id": self._gym_pass_id.value,
+            "owner_id": self._owner_id,
+            "status": self._status.value,
+            "period_of_validity": {
+                "from": self._period_of_validity.start_date,
+                "to": self._period_of_validity.end_date,
+            },
+            "pauses": [{"paused_at": pause.paused_at, "days": pause.days} for pause in self._pauses],
+        }

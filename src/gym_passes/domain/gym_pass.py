@@ -46,3 +46,38 @@ class GymPass:
             clock=clock,
             pauses=None,
         )
+
+    def is_owned_by(self, owner_id: OwnerId) -> bool:
+        return self._owner_id == owner_id
+
+    def activate(self) -> None:
+        self._status = Status.activated
+
+    def disable(self) -> None:
+        self._status = Status.disabled
+
+    def pause(self, pause: Pause) -> None:
+        if not self.active:
+            raise GymPassError("Can not pause not active gym pass!")
+
+        if len(self._pauses) >= 3:
+            raise GymPassError("The maximum amount of pauses were exceeded!")
+
+        self._status = Status.paused
+        self._pauses.append(pause)
+        self._pauses.sort(key=lambda pause_item: pause_item.paused_at)
+
+    def renew(self) -> None:
+        if self._status == Status.disabled:
+            raise GymPassError("Can not renew disabled gym pass!")
+
+        if self._status == Status.activated:
+            raise GymPassError("Can not renew active gym pass!")
+
+        latest_pause = self._pauses[-1]
+        self._period_of_validity = DateRange(
+            start_date=self._period_of_validity.start_date,
+            end_date=self._period_of_validity.end_date + relativedelta(days=latest_pause.days),
+        )
+
+        self._status = Status.activated

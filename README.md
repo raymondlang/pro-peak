@@ -24,8 +24,8 @@
 * Modify a gym class
 * List all gym classes sorted by time and day of the week
 
-## Project Structure
-* ![project-structure image]
+# Project Structure
+![propeak-api](https://github.com/raymondlang/pro-peak/assets/16345938/8476d9f0-6802-49b5-a4a5-109389f946c0)
 
 ## Stack
 * Python 3.10

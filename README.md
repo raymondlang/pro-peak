@@ -4,7 +4,7 @@
 * This is for education purposes only, and the code is not production-ready.
 
 ## Intro
-* I wanted to learn FastAPI while following the hexagonal architecture rules. [Well-liked Medium Article on Hexagonal Architechture](https://romanglushach.medium.com/hexagonal-architecture-the-secret-to-scalable-and-maintainable-code-for-modern-software-d345fdb47347)
+* I wanted to learn FastAPI while following the hexagonal architecture rules. [OG Paper on Hexagonal Architechture](https://alistair.cockburn.us/hexagonal-architecture/)
 *   This project is a simplified gym management software. We have functionalities like:
 
 ## Gym Clients

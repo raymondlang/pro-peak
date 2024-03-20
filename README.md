@@ -1,10 +1,11 @@
 
 
 ## Disclaimer
-* This is for educational purposes only, and the code is not production-ready.
+* This is for education purposes only, and the code is not production-ready.
 
 ## Intro
-* I created a project that uses FastAPI and follows the hexagonal architecture rules. This project is a simplified gym management software. We have functionalities like:
+* I wanted to learn FastAPI while following the hexagonal architecture rules. ![Read up on hexagonal architecture](https://romanglushach.medium.com/hexagonal-architecture-the-secret-to-scalable-and-maintainable-code-for-modern-software-d345fdb47347)
+*   This project is a simplified gym management software. We have functionalities like:
 
 ## Gym Clients
 * Create a gym client
